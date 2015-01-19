@@ -1,6 +1,7 @@
 require 'ostruct'
 require 'jimson-temp'
 require 'dante'
+require 'hashie/mash'
 
 require 'stripe'
 
