@@ -37,18 +37,18 @@ module StripeMock
       }
     end
 
-    def self.prepare_error(*args)
+    def self.prepare_error(message, param, code, http_status)
       json_body = {
         error: {
-          message: args[0],
-          code: args[2],
+          message: message,
+          code: code,
           charge: 'ch_123123123'
         }
       }
 
       http_body = json_body.to_json
 
-      return Stripe::CardError.new(*args, http_body, json_body)
+      return Stripe::CardError.new(message, param, code, http_status, http_body, json_body)
     end
   end
 
