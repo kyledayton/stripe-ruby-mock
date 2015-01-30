@@ -28,7 +28,12 @@ module StripeMock
         end
 
         txn_id = new_balance_transaction('txn')
-        txn = params[:expand].include?('balance_transaction') ? Data.mock_balance_transaction(:id => txn_id, source: id, amount: params[:amount]) : txn_id
+        txn = if params[:expand] && params[:expand].include?('balance_transaction') 
+          Data.mock_balance_transaction(:id => txn_id, source: id, amount: params[:amount])
+        else
+          txn_id
+        end
+
         charges[id] = Data.mock_charge(params.merge :id => id, :balance_transaction => txn)
       end
 
