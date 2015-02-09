@@ -16,7 +16,7 @@ module StripeMock
         account_balance: 0,
         cards: {
           object: "list",
-          count: cards.count,
+          total_count: cards.size,
           url: "/v1/customers/#{cus_id}/cards",
           data: cards
         },
@@ -49,6 +49,7 @@ module StripeMock
           last4: "4242",
           type: "Visa",
           brand: "Visa",
+          funding: "credit",
           exp_month: 12,
           exp_year: 2013,
           fingerprint: "3TQGpK9JoY1GgXPw",
@@ -113,6 +114,7 @@ module StripeMock
         last4: "4242",
         type: "Visa",
         brand: "Visa",
+        funding: "credit",
         exp_month: 4,
         exp_year: 2016,
         fingerprint: "wXWJT135mEK107G8",
@@ -342,6 +344,7 @@ module StripeMock
           :last4 => '2222',
           :type => 'Visa',
           :brand => 'Visa',
+          :funding => 'credit',
           :exp_month => 9,
           :exp_year => 2017,
           :fingerprint => 'JRRLXGh38NiYygM7',
@@ -460,5 +463,11 @@ module StripeMock
         description: nil
       }.merge(params))
     end
+
+    def self.mock_list_object(data, params = {})
+      list = StripeMock::Data::List.new(data, params)
+      list.to_h
+    end
+    
   end
 end
