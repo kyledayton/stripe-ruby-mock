@@ -32,7 +32,7 @@ module StripeMock
 
     def self.mock_charge(params={})
       charge_id = params[:id] || "ch_1fD6uiR9FAA2zc"
-      Hashie::Mash.new({
+      {
         id: charge_id,
         object: "charge",
         created: 1366194027,
@@ -83,7 +83,7 @@ module StripeMock
         dispute: nil,
         metadata: {
         }
-      }.merge(params))
+      }.merge(params)
     end
 
     def self.mock_refund(params={})
@@ -445,7 +445,7 @@ module StripeMock
       params[:amount] ||= 1000
       params[:fee] ||= (params[:amount] * 0.029).to_i + 30
       params[:net] ||= params[:amount] - params[:fee]
-      Hashie::Mash.new({
+      {
         id: "txn_1",
         object: "balance_transaction",
         amount: 1000,
@@ -461,7 +461,7 @@ module StripeMock
         ],
         source: "ch_1",
         description: nil
-      }.merge(params))
+      }.merge(params)
     end
 
     def self.mock_list_object(data, params = {})
