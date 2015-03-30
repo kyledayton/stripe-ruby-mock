@@ -136,6 +136,7 @@ module StripeMock
     def self.mock_bank_account(params={})
       {
         object: "bank_account",
+        id: "ba_abcBankAccount123",
         bank_name: "STRIPEMOCK TEST BANK",
         last4: "6789",
         country: "US",
