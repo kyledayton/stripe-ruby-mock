@@ -141,6 +141,7 @@ module StripeMock
         last4: "6789",
         country: "US",
         currency: "usd",
+        routing_number: "110000000",
         validated: false,
         fingerprint: "aBcFinGerPrINt123"
       }.merge(params)
