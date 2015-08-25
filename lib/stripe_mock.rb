@@ -37,13 +37,16 @@ require 'stripe_mock/api/webhooks'
 
 require 'stripe_mock/request_handlers/helpers/card_helpers.rb'
 require 'stripe_mock/request_handlers/helpers/charge_helpers.rb'
+require 'stripe_mock/request_handlers/helpers/coupon_helpers.rb'
 require 'stripe_mock/request_handlers/helpers/subscription_helpers.rb'
 require 'stripe_mock/request_handlers/helpers/token_helpers.rb'
 
 require 'stripe_mock/request_handlers/validators/param_validators.rb'
 
+require 'stripe_mock/request_handlers/accounts.rb'
 require 'stripe_mock/request_handlers/charges.rb'
 require 'stripe_mock/request_handlers/cards.rb'
+require 'stripe_mock/request_handlers/sources.rb'
 require 'stripe_mock/request_handlers/customers.rb'
 require 'stripe_mock/request_handlers/coupons.rb'
 require 'stripe_mock/request_handlers/events.rb'
